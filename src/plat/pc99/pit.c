@@ -65,8 +65,8 @@ sel4platsupport_get_pit(vka_t *vka, simple_t *simple, ps_io_port_ops_t *ops, seL
     }
 
     /* bind to endpoint */
-    if (seL4_IRQHandler_SetEndpoint(data->irq, aep) != seL4_NoError) {
-        LOG_ERROR("seL4_IRQHandler_SetEndpoint failed\n");
+    if (seL4_IRQHandler_SetNotification(data->irq, aep) != seL4_NoError) {
+        LOG_ERROR("seL4_IRQHandler_SetNotification failed\n");
         goto error;
     }
 

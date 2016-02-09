@@ -102,9 +102,9 @@ timer_common_init(vspace_t *vspace, simple_t *simple,
     }
 
     /* set the end point */
-    error = seL4_IRQHandler_SetEndpoint(timer_data->irq, aep);
+    error = seL4_IRQHandler_SetNotification(timer_data->irq, aep);
     if (error != seL4_NoError) {
-        LOG_ERROR("seL4_IRQHandler_SetEndpoint failed with error %d\n", error);
+        LOG_ERROR("seL4_IRQHandler_SetNotification failed with error %d\n", error);
         goto error;
     }
 
